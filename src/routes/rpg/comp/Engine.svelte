@@ -1,5 +1,5 @@
 <script>
-	import { _game } from '../../lib/data'
+	import { _game } from '../../../lib/data'
 	import { onMount, onDestroy } from 'svelte'
 	$: game = $_game
 	let timer = 10

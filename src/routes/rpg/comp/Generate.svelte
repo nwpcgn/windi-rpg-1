@@ -1,5 +1,5 @@
 <script>
-	import { _game } from '../../lib/data'
+	import { _game } from '../../../lib/data'
 	const chopping_wood_audio = new Audio('/audio/click.mp3')
 	const mine_stone_audio = new Audio('/audio/open_001.ogg')
 	const mine_iron_audio = new Audio('/audio/click.mp3')

@@ -1,9 +1,6 @@
 <script>
 	import StoreCard from './StoreCard.svelte'
-
-	import StatBar from '../../lib/StatBar.svelte'
-	import Layer from '../../lib/Layer.svelte'
-	import { addToast } from '../../lib/notes'
+	import { addToast } from '../../../lib/notes'
 	export let wood = {}
 	export let stone = {}
 	export let iron = {}
@@ -85,15 +82,9 @@
 	}
 </script>
 
-<Layer glass>
-	<header>
-		<StatBar>
-			<h2>Storage</h2>
-		</StatBar>
-	</header>
-	<div class="py-4" />
+<section class="flex flex-col divide-y">
 	<StoreCard {...wood} on:click={buildWoodStorage} />
 	<StoreCard {...stone} on:click={buildStoneStorage} />
 	<StoreCard {...iron} on:click={buildIronStorage} />
 	<StoreCard {...food} on:click={buildFoodStorage} />
-</Layer>
+</section>

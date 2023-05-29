@@ -1,9 +1,6 @@
 <script>
 	import WorkerCard from './WorkerCard.svelte'
-
-	import StatBar from '../../lib/StatBar.svelte'
-	import Layer from '../../lib/Layer.svelte'
-	import { addToast } from '../../lib/notes'
+	import { addToast } from '../../../lib/notes'
 	export let wood = {}
 	export let stone = {}
 	export let iron = {}

@@ -1,8 +1,8 @@
 <script>
-	import BlackJack from './bj/BlackJack.svelte'
+	import BlackJack from './routes/bj/BlackJack.svelte'
 	import Button from './lib/Button.svelte'
-	import Rpg from './routes/Start.svelte'
-	import Settings from './views/Settings.svelte'
+	import Rpg from './routes/rpg/Rpg.svelte'
+	import Settings from './routes/Settings.svelte'
 	import Sidebar from './lib/Sidebar.svelte'
 	import TopAppBar from './lib/TopAppBar.svelte'
 	import { Route, router } from 'tinro'
@@ -37,7 +37,7 @@
 
 					<div class="flex justify-center gap-1">
 						<Button href="/bj">Start Game</Button>
-						<Button href="/info">Alpha Grid</Button>
+						<Button href="/rpg">Alpha Grid</Button>
 						<Button color="light" on:click={() => (open2 = true)}
 							>Information</Button>
 					</div>

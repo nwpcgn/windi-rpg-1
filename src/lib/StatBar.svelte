@@ -1,5 +1,5 @@
 <script>
-	import {_game} from '../../lib/data'
+	import {_game} from './data'
 	$: ({
 		wood, stone, iron, food, worker
 	} = $_game)

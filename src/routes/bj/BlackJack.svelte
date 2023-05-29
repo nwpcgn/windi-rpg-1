@@ -1,6 +1,6 @@
 <script>
-	import Button from '../comp/Button.svelte'
-	import ButtonBar from '../comp/ButtonBar.svelte'
+	import Button from '../../lib/Button.svelte'
+	import ButtonBar from '../../lib/ButtonBar.svelte'
 	const playerIcon = `<svg viewBox="0 0 90 90" fill="none" role="img" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><title>Player</title><mask id="mask__ring" maskUnits="userSpaceOnUse" x="0" y="0" width="90" height="90"><rect width="90" height="90" rx="180" fill="#FFFFFF"></rect></mask><g mask="url(#mask__ring)"><path d="M83 45a38 38 0 00-76 0h76z" fill="#0ea5e9"></path><path d="M83 45a38 38 0 01-76 0h76z" fill="#0284c7"></path><path d="M0 0h90v45H0z" fill="#38bdf8"></path><path d="M0 45h90v45H0z" fill="#0ea5e9"></path><path d="M77 45a32 32 0 10-64 0h64z" fill="#0284c7"></path><path d="M77 45a32 32 0 11-64 0h64z" fill="#f4f4f4"></path><path d="M71 45a26 26 0 00-52 0h52z" fill="#f4f4f4"></path><path d="M71 45a26 26 0 01-52 0h52z" fill="#38bdf8"></path><circle cx="45" cy="45" r="23" fill="#7dd3fc"></circle></g></svg> `
 	const dealerIcon = `<svg viewBox="0 0 90 90" fill="none" role="img" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><title>Dealer</title><mask id="mask__ring" maskUnits="userSpaceOnUse" x="0" y="0" width="90" height="90"><rect width="90" height="90" rx="180" fill="#FFFFFF"></rect></mask><g mask="url(#mask__ring)"><path d="M0 0h90v45H0z" fill="#0284c7"></path><path d="M0 45h90v45H0z" fill="#f4f4f4"></path><path d="M83 45a38 38 0 00-76 0h76z" fill="#f4f4f4"></path><path d="M83 45a38 38 0 01-76 0h76z" fill="#7dd3fc"></path><path d="M77 45a32 32 0 10-64 0h64z" fill="#7dd3fc"></path><path d="M77 45a32 32 0 11-64 0h64z" fill="#38bdf8"></path><path d="M71 45a26 26 0 00-52 0h52z" fill="#38bdf8"></path><path d="M71 45a26 26 0 01-52 0h52z" fill="#0284c7"></path><circle cx="45" cy="45" r="23" fill="#0ea5e9"></circle></g></svg> `
 	// const dealerIconB = `<svg viewBox="0 0 80 80" fill="none" role="img" xmlns="http://www.w3.org/2000/svg" width="40" height="40"><title>Dealer Bauhaus</title><mask id="mask__bauhaus" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="80"><rect width="80" height="80" rx="160" fill="#FFFFFF"></rect></mask><g mask="url(#mask__bauhaus)"><rect width="80" height="80" fill="#0ea5e9"></rect><rect x="10" y="30" width="80" height="80" fill="#0284c7" transform="translate(14 -14) rotate(36 40 40)"></rect><circle cx="40" cy="40" fill="#f4f4f4" r="16" transform="translate(3 3)"></circle><line x1="0" y1="40" x2="80" y2="40" stroke-width="2" stroke="#7dd3fc" transform="translate(12 12) rotate(72 40 40)"></line></g></svg>`
@@ -49,6 +49,7 @@
 	let playerScoreT = ``
 	let dealerScoreT = ``
 	let textUpdatesT = ``
+	let trackerT = ``
 	let showBtnBox = false
 	let showNewBtn = true
 
@@ -56,6 +57,33 @@
 		this.suit = suit // string of c/d/h/s
 		this.value = value // number 1 - 10
 		this.name = name // string of the full card name
+	}
+
+	let msg = {}
+	msg.p21 = 'You won! You got 21 on your initial hand!'
+	msg.d21 = 'You lost! The dealer had 21 on their initial hand.'
+	msg.hit = 'Hit or stay?'
+	msg.stay1 = 'The dealer reveals their hidden card'
+	msg.stay2 = 'Dealer hits!'
+	msg.vic21 = `Your hand's value is 21!`
+	msg.tracker = `<p>Wins: ${jsbApp.wins} Draws: ${jsbApp.draws} Losses: ${jsbApp.losses}</p>`
+	msg.vic31 = function (dealerTotal) {
+		return `Dealer busted with ${dealerTotal}!`
+	}
+	msg.vic41 = function (playerTotal, dealerTotal) {
+		return `You had ${playerTotal} and the dealer had ${dealerTotal}.`
+	}
+	msg.victory = function (str) {
+		return `You won!<br>${str}<br>Press 'New Game' to play again.`
+	}
+	msg.bust21 = function (playerTotal) {
+		return `You busted with ${playerTotal}.<br>`
+	}
+	msg.busted = function (str) {
+		return `You lost.<br>${str}Press 'New Game' to play again.`
+	}
+	msg.tied = function (playerTotal) {
+		return `It's a tie at ${playerTotal} points each.<br>Press 'New Game' to play again.`
 	}
 
 	const newGame = function () {
@@ -73,7 +101,7 @@
 			jsbApp.games += 1
 			jsbApp.gameStatus = 1 // to cause the dealer's hand to be drawn face up
 			drawHands()
-			textUpdatesT = 'You won! You got 21 on your initial hand!'
+			textUpdatesT = msg.p21
 			track()
 			jsbApp.gameStatus = 2 // game is won
 			return
@@ -87,7 +115,7 @@
 			jsbApp.losses += 1
 			jsbApp.gameStatus = 1 // to cause the dealer's hand to be drawn face up
 			drawHands()
-			textUpdatesT = 'You lost! The dealer had 21 on their initial hand.'
+			textUpdatesT = msg.d21
 			track()
 			jsbApp.gameStatus = 2 // game is won
 			return
@@ -242,7 +270,7 @@
 			return
 		}
 		advise()
-		textUpdatesT = 'Hit or stay?'
+		textUpdatesT = msg.hit
 		return
 	}
 
@@ -256,7 +284,7 @@
 			let handVal = handTotal(jsbApp.dealerHand)
 			jsbApp.gameStatus = 1 // enter the 'stay' loop
 			advise() // clear advise
-			textUpdatesT = `The dealer reveals their hidden card`
+			textUpdatesT = msg.stay1
 			drawHands()
 			setTimeout(stayLoop, gameDelay) // return to the stay loop
 		} else if (jsbApp.gameStatus === 1) {
@@ -281,8 +309,7 @@
 				return
 			} // hit
 			else {
-				// console.log(`jsbApp.textUpdates.innerHTML = 'Dealer hits!'`)
-				textUpdatesT = 'Dealer hits!'
+				textUpdatesT = msg.stay2
 				jsbApp.dealerHand.push(jsbApp.deck.pop())
 				drawHands()
 				setTimeout(stayLoop, gameDelay)
@@ -302,15 +329,14 @@
 		let playerTotal = handTotal(jsbApp.playerHand)
 		let dealerTotal = handTotal(jsbApp.dealerHand)
 		if (playerTotal === 21) {
-			explanation = "Your hand's value is 21!"
+			explanation = `Your hand's value is 21!`
 		} else if (dealerTotal > 21) {
-			explanation = 'Dealer busted with ' + dealerTotal + '!'
+			explanation = msg.vic31(dealerTotal)
 		} else {
-			explanation =
-				'You had ' + playerTotal + ' and the dealer had ' + dealerTotal + '.'
+			explanation = msg.vic41(playerTotal, dealerTotal)
 		}
 
-		textUpdatesT = `You won!<br>${explanation}<br>Press 'New Game' to play again.`
+		textUpdatesT = msg.victory(explanation)
 		track()
 	}
 
@@ -322,10 +348,10 @@
 		let playerTotal = handTotal(jsbApp.playerHand)
 		let dealerTotal = handTotal(jsbApp.dealerHand)
 		if (playerTotal > 21) {
-			explanation = 'You busted with ' + playerTotal + '.'
+			explanation = msg.bust21(playerTotal)
 		}
 
-		textUpdatesT = `You lost.<br>${explanation}<br>Press 'New Game' to play again.`
+		textUpdatesT = msg.busted(explanation)
 		track()
 	}
 
@@ -335,22 +361,12 @@
 		let explanation = ''
 		jsbApp.gameStatus = 2 // flag that the game is over
 		let playerTotal = handTotal(jsbApp.playerHand)
-		textUpdatesT = `It's a tie at ${playerTotal} points each.<br>Press 'New Game' to play again.`
+		textUpdatesT = msg.tied(playerTotal)
 		track()
 	}
 
-	// update the win/loss counter
 	const track = function () {
-		console.log(`jsbApp.tracker.innerHTML =
-			'<p>Wins: ' +
-			${jsbApp.wins} +
-			' Draws: ' +
-			${jsbApp.draws} +
-			' Losses: ' +
-			${jsbApp.losses} +
-			'</p>'
-		jsbApp.newgame.classList.remove('hidden')
-		jsbApp.buttonBox.classList.add('hidden')`)
+		trackerT = msg.tracker
 		showNewBtn = true
 		showBtnBox = false
 	}
@@ -430,59 +446,22 @@
 	}
 </script>
 
-<section class="py-12">
-	<div class="container px-4 mx-auto">
+<section class="gameboard">
+	<header class="header py-4">
 		<div class="max-w-xl lg:max-w-3xl mx-auto text-center">
-			<span class="text-lg font-semibold text-blue-500 capitalize"
-				>Nwp-Studio</span>
-			<p>Stat: {jsbApp.gameStatus}</p>
-			<div class="h-12">
-				{#if showNewBtn}
-					<ButtonBar>
-						<Button on:click={newGame}>New Game</Button>
-					</ButtonBar>
-				{/if}
-
-				{#if showBtnBox}
-					<ButtonBar>
-						<Button on:click={pressHit}>Hit</Button>
-						<Button on:click={pressStay} color="light">Stay</Button>
-					</ButtonBar>
-				{/if}
-			</div>
-		</div>
-	</div>
-</section>
-<section class="py-4">
-	<div class="container px-4 mx-auto">
-		<!-- 		<div class="flex flex-wrap -mx-8">
-			<div class="w-full md:w-1/2 py-4 px-8 mb-4 md:mb-0">
-				<p class="mb-2 text-5xl font-bol">
-					{@html playerCardT}
-				</p>
-			</div>
-			<div class="w-full md:w-1/2 py-4 px-8 mb-4 md:mb-0">
-				<p class="text-lg text-gray-500">{playerScoreT !== '' ? 'Score' : ''}</p>
-				<h1
-					class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold font-heading">
-					{@html playerScoreT}
-				</h1>
-			</div>
-		</div> -->
-
-		<div class="flex flex-wrap -mx-8">
-			<div class="w-full md:w-1/2 py-4 px-8 mb-4 md:mb-0">
+			{#if textUpdatesT === ''}
+				<h4 class="text-lg font-semibold text-blue-500 capitalize">
+					Nwp-Studio
+				</h4>
+			{:else}
 				{@html textUpdatesT}
-			</div>
-			<div class="w-full md:w-1/2 py-4 px-8 mb-4 md:mb-0">
-				<!---->
-			</div>
+			{/if}
 		</div>
-	</div>
+	</header>
 
-	<div class="container px-4 mx-auto">
-		<div class="flex flex-wrap -mx-4">
-			<div class="px-4 w-full lg:w-1/2">
+	<article class="article flex items-center lg:flex-col lg:items-stretch">
+		<section class="flex flex-col-reverse gap-1 w-full lg:flex-row">
+			<div class="px-4 w-full">
 				<section>
 					<div class="flex items-center justify-between p-2">
 						<h2
@@ -500,7 +479,8 @@
 					</div>
 				</section>
 			</div>
-			<div class="px-4 w-full lg:w-1/2">
+
+			<div class="px-4 w-full">
 				<section>
 					<div class="flex items-center justify-between p-2">
 						<h2
@@ -518,6 +498,64 @@
 					</div>
 				</section>
 			</div>
+		</section>
+	</article>
+	<footer class="footer py-2">
+		<div class="text-center">
+			{#if showNewBtn}
+				<ButtonBar>
+					<Button on:click={newGame}>New Game</Button>
+				</ButtonBar>
+			{/if}
+			{#if showBtnBox}
+				<ButtonBar>
+					<Button on:click={pressHit}>Hit</Button>
+					<Button on:click={pressStay} color="light">Stay</Button>
+				</ButtonBar>
+			{/if}
 		</div>
-	</div>
+	</footer>
 </section>
+
+<style>
+	.gameboard.green {
+		background: radial-gradient(circle, #006600, #004d00, #003300);
+		color: #f2f2f2;
+	}
+
+	.gameboard.bg-img {
+		background-image: url('https://pl.sterlingcdn.com/wp-content/uploads/sites/3/2018/07/blackjack-classic-background.jpg');
+		background-repeat: no-repeat;
+		background-position: left top;
+		background-size: auto;
+	}
+
+	.gameboard {
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		right: 0;
+		left: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: minmax(80px, 100px) 2fr minmax(40px, 80px);
+		grid-template-areas: 'header' 'article' 'footer';
+		grid-gap: var(--game-area-gap, 0.5rem);
+		padding: var(--game-area-padding, 0.5rem);
+	}
+
+	.footer {
+		align-self: center;
+		grid-area: footer;
+	}
+
+	.article {
+		align-self: center;
+		grid-area: article;
+	}
+
+	.header {
+		align-self: center;
+		grid-area: header;
+	}
+</style>

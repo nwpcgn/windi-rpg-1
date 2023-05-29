@@ -1,6 +1,6 @@
 <script>
-	import { _game } from '../../lib/data'
-	import { addToast } from '../../lib/notes'
+	import { _game } from '../../../lib/data'
+	import { addToast } from '../../../lib/notes'
 	$: game = $_game
 	// $: base_arr = [game.wood, game.stone, game.iron, game.food]
 

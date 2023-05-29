@@ -8,9 +8,9 @@
 	import Build from './comp/Build.svelte'
 	import Store from './comp/Store.svelte'
 	import Window from './Window.svelte'
-	import { addToast } from '../lib/notes'
+	import { addToast } from '../../lib/notes'
 	import { Route, router } from 'tinro'
-	import { _game } from '../lib/data'
+	import { _game } from '../../lib/data'
 	
 	$: game = {
 		names: {
