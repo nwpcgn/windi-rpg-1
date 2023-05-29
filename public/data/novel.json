@@ -1,0 +1,89 @@
+{
+	"d7b04ebd-2b4c-45ab-b195-05fdf509c4ff": {
+		"name": "Max",
+		"character_uuid": "88f9a9b6-7741-47f4-bd48-482871fc16ab",
+		"portrait": "./img/avatar/airhostess.png",
+		"text": {
+			"en": "Starting Point",
+			"fr": "",
+			"de": "Startseite"
+		},
+		"parent": "root",
+		"next": "a8df828e-e286-408e-bb5e-60dc99f19e60"
+	},
+	"root": {
+		"next": "d7b04ebd-2b4c-45ab-b195-05fdf509c4ff"
+	},
+	"a8df828e-e286-408e-bb5e-60dc99f19e60": {
+		"name": "Max",
+		"character_uuid": "88f9a9b6-7741-47f4-bd48-482871fc16ab",
+		"portrait": "./img/avatar/airhostess.png",
+		"text": {
+			"en": "Section 1",
+			"fr": "",
+			"de": "Sektion 1"
+		},
+		"parent": "d7b04ebd-2b4c-45ab-b195-05fdf509c4ff",
+		"signals": {
+			"openInfo": {},
+			"openPage": {
+				"String": "page"
+			},
+			"parent": "a8df828e-e286-408e-bb5e-60dc99f19e60"
+		},
+		"next": "a1f73385-df0f-4f94-bd92-80a0dd4203ba"
+	},
+	"a1f73385-df0f-4f94-bd92-80a0dd4203ba": {
+		"name": "Max",
+		"character_uuid": "88f9a9b6-7741-47f4-bd48-482871fc16ab",
+		"portrait": "./img/avatar/airhostess.png",
+		"text": {
+			"en": "Notifications",
+			"fr": "",
+			"de": "Notification"
+		},
+		"parent": "a8df828e-e286-408e-bb5e-60dc99f19e60",
+		"choices": [
+			{
+				"text": {
+					"en": "Add New",
+					"fr": "",
+					"de": "Neue Notification"
+				},
+				"next": "65d1d454-0e5e-4b1f-aafa-f8420b44fd66",
+				"parent": "a1f73385-df0f-4f94-bd92-80a0dd4203ba"
+			},
+			{
+				"text": {
+					"en": "Edit Note",
+					"fr": "",
+					"de": "Bearbeite Notification"
+				},
+				"next": "a54fba32-0e22-4140-a2c3-f3d6fefed8b7",
+				"parent": "a1f73385-df0f-4f94-bd92-80a0dd4203ba"
+			}
+		]
+	},
+	"65d1d454-0e5e-4b1f-aafa-f8420b44fd66": {
+		"name": "Max",
+		"character_uuid": "88f9a9b6-7741-47f4-bd48-482871fc16ab",
+		"portrait": "./img/avatar/airhostess.png",
+		"text": {
+			"en": "New Note",
+			"fr": "",
+			"de": "Hinzufuegen"
+		},
+		"parent": "be9edb07-b1fb-45ea-aac9-4466cce41128"
+	},
+	"a54fba32-0e22-4140-a2c3-f3d6fefed8b7": {
+		"name": "Max",
+		"character_uuid": "88f9a9b6-7741-47f4-bd48-482871fc16ab",
+		"portrait": "./img/avatar/airhostess.png",
+		"text": {
+			"en": "Edit Note",
+			"fr": "",
+			"de": "Bearbeiten"
+		},
+		"parent": "f0d9ebe7-eb06-4967-8a61-9678652897b5"
+	}
+}

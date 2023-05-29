@@ -1,0 +1,262 @@
+[
+   {
+       "slug": "herz10",
+       "name": "Herz10",
+       "path": "./img/cards/herz10.png"
+   },
+   {
+       "slug": "herz2",
+       "name": "Herz2",
+       "path": "./img/cards/herz2.png"
+   },
+   {
+       "slug": "herz3",
+       "name": "Herz3",
+       "path": "./img/cards/herz3.png"
+   },
+   {
+       "slug": "herz4",
+       "name": "Herz4",
+       "path": "./img/cards/herz4.png"
+   },
+   {
+       "slug": "herz5",
+       "name": "Herz5",
+       "path": "./img/cards/herz5.png"
+   },
+   {
+       "slug": "herz6",
+       "name": "Herz6",
+       "path": "./img/cards/herz6.png"
+   },
+   {
+       "slug": "herz7",
+       "name": "Herz7",
+       "path": "./img/cards/herz7.png"
+   },
+   {
+       "slug": "herz8",
+       "name": "Herz8",
+       "path": "./img/cards/herz8.png"
+   },
+   {
+       "slug": "herz9",
+       "name": "Herz9",
+       "path": "./img/cards/herz9.png"
+   },
+   {
+       "slug": "herza",
+       "name": "Herza",
+       "path": "./img/cards/herza.png"
+   },
+   {
+       "slug": "herzj",
+       "name": "Herzj",
+       "path": "./img/cards/herzj.png"
+   },
+   {
+       "slug": "herzk",
+       "name": "Herzk",
+       "path": "./img/cards/herzk.png"
+   },
+   {
+       "slug": "herzq",
+       "name": "Herzq",
+       "path": "./img/cards/herzq.png"
+   },
+   {
+       "slug": "karo10",
+       "name": "Karo10",
+       "path": "./img/cards/karo10.png"
+   },
+   {
+       "slug": "karo2",
+       "name": "Karo2",
+       "path": "./img/cards/karo2.png"
+   },
+   {
+       "slug": "karo3",
+       "name": "Karo3",
+       "path": "./img/cards/karo3.png"
+   },
+   {
+       "slug": "karo4",
+       "name": "Karo4",
+       "path": "./img/cards/karo4.png"
+   },
+   {
+       "slug": "karo5",
+       "name": "Karo5",
+       "path": "./img/cards/karo5.png"
+   },
+   {
+       "slug": "karo6",
+       "name": "Karo6",
+       "path": "./img/cards/karo6.png"
+   },
+   {
+       "slug": "karo7",
+       "name": "Karo7",
+       "path": "./img/cards/karo7.png"
+   },
+   {
+       "slug": "karo8",
+       "name": "Karo8",
+       "path": "./img/cards/karo8.png"
+   },
+   {
+       "slug": "karo9",
+       "name": "Karo9",
+       "path": "./img/cards/karo9.png"
+   },
+   {
+       "slug": "karoa",
+       "name": "Karoa",
+       "path": "./img/cards/karoa.png"
+   },
+   {
+       "slug": "karoj",
+       "name": "Karoj",
+       "path": "./img/cards/karoj.png"
+   },
+   {
+       "slug": "karok",
+       "name": "Karok",
+       "path": "./img/cards/karok.png"
+   },
+   {
+       "slug": "karoq",
+       "name": "Karoq",
+       "path": "./img/cards/karoq.png"
+   },
+   {
+       "slug": "kreuz10",
+       "name": "Kreuz10",
+       "path": "./img/cards/kreuz10.png"
+   },
+   {
+       "slug": "kreuz2",
+       "name": "Kreuz2",
+       "path": "./img/cards/kreuz2.png"
+   },
+   {
+       "slug": "kreuz3",
+       "name": "Kreuz3",
+       "path": "./img/cards/kreuz3.png"
+   },
+   {
+       "slug": "kreuz4",
+       "name": "Kreuz4",
+       "path": "./img/cards/kreuz4.png"
+   },
+   {
+       "slug": "kreuz5",
+       "name": "Kreuz5",
+       "path": "./img/cards/kreuz5.png"
+   },
+   {
+       "slug": "kreuz6",
+       "name": "Kreuz6",
+       "path": "./img/cards/kreuz6.png"
+   },
+   {
+       "slug": "kreuz7",
+       "name": "Kreuz7",
+       "path": "./img/cards/kreuz7.png"
+   },
+   {
+       "slug": "kreuz8",
+       "name": "Kreuz8",
+       "path": "./img/cards/kreuz8.png"
+   },
+   {
+       "slug": "kreuz9",
+       "name": "Kreuz9",
+       "path": "./img/cards/kreuz9.png"
+   },
+   {
+       "slug": "kreuza",
+       "name": "Kreuza",
+       "path": "./img/cards/kreuza.png"
+   },
+   {
+       "slug": "kreuzj",
+       "name": "Kreuzj",
+       "path": "./img/cards/kreuzj.png"
+   },
+   {
+       "slug": "kreuzk",
+       "name": "Kreuzk",
+       "path": "./img/cards/kreuzk.png"
+   },
+   {
+       "slug": "kreuzq",
+       "name": "Kreuzq",
+       "path": "./img/cards/kreuzq.png"
+   },
+   {
+       "slug": "pick10",
+       "name": "Pick10",
+       "path": "./img/cards/pick10.png"
+   },
+   {
+       "slug": "pick2",
+       "name": "Pick2",
+       "path": "./img/cards/pick2.png"
+   },
+   {
+       "slug": "pick3",
+       "name": "Pick3",
+       "path": "./img/cards/pick3.png"
+   },
+   {
+       "slug": "pick4",
+       "name": "Pick4",
+       "path": "./img/cards/pick4.png"
+   },
+   {
+       "slug": "pick5",
+       "name": "Pick5",
+       "path": "./img/cards/pick5.png"
+   },
+   {
+       "slug": "pick6",
+       "name": "Pick6",
+       "path": "./img/cards/pick6.png"
+   },
+   {
+       "slug": "pick7",
+       "name": "Pick7",
+       "path": "./img/cards/pick7.png"
+   },
+   {
+       "slug": "pick8",
+       "name": "Pick8",
+       "path": "./img/cards/pick8.png"
+   },
+   {
+       "slug": "pick9",
+       "name": "Pick9",
+       "path": "./img/cards/pick9.png"
+   },
+   {
+       "slug": "picka",
+       "name": "Picka",
+       "path": "./img/cards/picka.png"
+   },
+   {
+       "slug": "pickj",
+       "name": "Pickj",
+       "path": "./img/cards/pickj.png"
+   },
+   {
+       "slug": "pickk",
+       "name": "Pickk",
+       "path": "./img/cards/pickk.png"
+   },
+   {
+       "slug": "pickq",
+       "name": "Pickq",
+       "path": "./img/cards/pickq.png"
+   }
+]

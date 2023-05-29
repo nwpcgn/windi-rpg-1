@@ -1,0 +1,13 @@
+{
+   "style_name": "set",
+   "folder": "",
+   "orientation": "horizontal",
+   "padding": 0,
+   "custom_styles": {
+      "animation": "slide 30s linear infinite"
+   },
+   "stylesheet": "css",
+   "path_prefix": "",
+   "output": "png",
+   "enable_cache_busting": true
+}
